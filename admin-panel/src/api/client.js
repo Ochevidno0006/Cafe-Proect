@@ -1,4 +1,6 @@
+cat > admin-panel/src/api/client.js << 'EOF'
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+const CLIENT_MENU_BASE = import.meta.env.VITE_CLIENT_MENU_BASE || 'http://localhost:5174';
 
 function getToken() {
   return localStorage.getItem('accessToken');
@@ -46,4 +48,5 @@ export const api = {
   },
 };
 
-export { API_BASE };
+export { API_BASE, CLIENT_MENU_BASE };
+EOF

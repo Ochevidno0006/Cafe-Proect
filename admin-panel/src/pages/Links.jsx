@@ -1,5 +1,6 @@
+cat > admin-panel/src/pages/Links.jsx << 'EOF'
 import { useEffect, useState } from 'react';
-import { api, API_BASE } from '../api/client';
+import { api, CLIENT_MENU_BASE } from '../api/client';
 import { Card, Spinner, Button } from '../components/ui';
 
 export default function Links() {
@@ -12,7 +13,7 @@ export default function Links() {
 
   if (!preview) return <Spinner />;
 
-  const menuUrl = `${API_BASE}/menu/${preview.cafe.slug}`;
+  const menuUrl = `${CLIENT_MENU_BASE}/${preview.cafe.slug}`;
   const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(menuUrl)}`;
 
   function copy() {
@@ -41,3 +42,4 @@ export default function Links() {
     </div>
   );
 }
+EOF

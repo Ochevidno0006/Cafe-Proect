@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { api, API_BASE } from '../api/client';
+import { api, CLIENT_MENU_BASE } from '../api/client';
 import { Card, Button, Spinner } from '../components/ui';
 
 export default function Dashboard() {
@@ -137,7 +137,7 @@ function LivePreview() {
           Это черновик — гости видят его только после нажатия «Опубликовать меню».
         </p>
         <p className="text-xs text-ink/40">
-          Публичная ссылка: <code className="bg-ink/5 px-1.5 py-0.5 rounded">{API_BASE}/menu/{preview.cafe.slug}</code>
+         Публичная ссылка: <code className="bg-ink/5 px-1.5 py-0.5 rounded">{CLIENT_MENU_BASE}/{preview.cafe.slug}</code>
         </p>
       </div>
     </div>
