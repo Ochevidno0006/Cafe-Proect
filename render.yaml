@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: cafe-menu-saas-api
+    env: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: true
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_TTL
+        value: 15m
+      - key: JWT_REFRESH_TTL
+        value: 30d
+      - key: SUPERADMIN_PHONE
+        sync: false
+      - key: SUPERADMIN_PASSWORD
+        sync: false
+      - key: SUPERADMIN_FIRST_NAME
+        value: Super
+      - key: SUPERADMIN_LAST_NAME
+        value: Admin
+      - key: LOGIN_MAX_ATTEMPTS
+        value: 5
+      - key: LOGIN_LOCKOUT_MINUTES
+        value: 15
